@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arturo Díaz | Creative Developer</title>
+  <meta name="description" content="Portafolio creativo de Arturo Díaz, desarrollo web y experiencias digitales.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+
+<body>
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__core">
+    <div class="preloader__ring preloader__ring--outer"></div>
+    <div class="preloader__ring preloader__ring--middle"></div>
+    <div class="preloader__ring preloader__ring--inner"></div>
+
+    <div class="preloader__pulse"></div>
+
+    <span class="preloader__particle preloader__particle--1"></span>
+    <span class="preloader__particle preloader__particle--2"></span>
+    <span class="preloader__particle preloader__particle--3"></span>
+    <span class="preloader__particle preloader__particle--4"></span>
+  </div>
+
+  <div class="preloader__meta">
+    <p class="preloader__label" data-i18n="preloader.label">Cargando experiencia</p>
+    <div class="preloader__bar">
+      <span class="preloader__bar-fill"></span>
+    </div>
+  </div>
+</div>
+
+<canvas id="bg-canvas"></canvas>
+<div class="cursor"></div>
+
+<header class="header">
+
+  <div class="logo">
+    <img src="./assets/img/300ppi/logo.png" class="logo__img" alt="Logo Arturo">
+  </div>
+
+
+  <nav class="nav" id="nav">
+    <a href="index.html" data-i18n="nav.home">Inicio</a>
+    <a href="proyectos.html" data-i18n="nav.projects">Proyectos</a>
+    <a href="contacto.html" data-i18n="nav.contact">Mis redes</a>
+  </nav>
+
+  <div class="lang-switch" id="lang-switch" aria-label="Selector de idioma">
+    <div class="lang-switch__track">
+      <div class="lang-switch__blob"></div>
+
+      <button class="lang-switch__btn is-active" type="button" data-lang="es">
+        <span>ES</span>
+      </button>
+
+      <button class="lang-switch__btn" type="button" data-lang="en">
+        <span>EN</span>
+      </button>
+    </div>
+  </div>
+
+
+    <!--<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema">
+      <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+
+      <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 2.5V5.2M12 18.8V21.5M21.5 12H18.8M5.2 12H2.5M18.7 5.3L16.8 7.2M7.2 16.8L5.3 18.7M18.7 18.7L16.8 16.8M7.2 7.2L5.3 5.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </button>-->
+
+
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+  </div>
+
+</header>
+
+<main>
+  <section id="home" class="hero section section--fullscreen">
+    <div id="pyramid-canvas"></div>
+    <div class="container hero__container">
+      <div class="hero__content">
+        <p class="hero__availability">
+          <span data-i18n="hero.availability">Abierto para:</span> <span id="typewriter"></span>
+        </p>
+
+        <h1 class="hero__title" data-i18n-html="hero.title">
+          Diseño <span>Experiencias</span> Digitales
+        </h1>
+
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
+          Que se sienten simples y elegantes
+        </p>
+
+        <div class="hero__buttons">
+          <a href="tel:+527228897198" class="btn btn--primary btn--call">
+            <svg class="btn__icon" viewBox="0 0 24 24">
+              <path d="M6.6 10.8c1.2 2.4 3.2 4.4 5.6 5.6l1.9-1.9c.2-.2.6-.3.9-.2 
+              1 .3 2 .5 3.1.5.5 0 .9.4.9.9v3c0 .5-.4.9-.9.9C10.7 20 4 13.3 4 
+              5.9c0-.5.4-.9.9-.9h3c.5 0 .9.4.9.9 0 1.1.2 2.1.5 3.1.1.3 0 
+              .7-.2.9l-1.5 1.5z"/>
+            </svg>
+            <span data-i18n="hero.ctaPrimary">Trabajemos juntos</span>
+          </a>
+          <a href="#projects" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Ver proyectos</a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <img src="./assets/img/arturw.png" alt="Arturo" class="hero__img" id="hero-arturo">
+      </div>
+
+    </div>
+  </section>
+
+  <section class="skills-strip">
+    <div class="skills-track" id="skills-track">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" alt="Adobe XD">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" alt="HTML5">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" alt="CSS3">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="Sass">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender">
+    </div>
+  </section>
+
+  <section class="services section">
+    <div class="container">
+
+      <div class="section__header">
+        <h2 class="section__title" data-i18n="services.title">Lo que hago</h2>
+      </div>
+
+      <div class="services__nav">
+        <span class="nav-item active">01</span>
+        <span class="nav-item">02</span>
+        <span class="nav-item">03</span>
+        <span class="nav-item">04</span>
+      </div>
+
+      <div class="services__slider">
+
+        <div class="service active">
+          <div class="service__content">
+            <div class="service__tag" data-i18n="services.design.tag">Diseño</div>
+
+            <h3 data-i18n="services.design.title">
+              Diseño visual estratégico con identidad digital sólida
+            </h3>
+
+            <p data-i18n="services.design.body">
+              Construyo sistemas visuales coherentes que comunican valor, posicionan marcas y generan impacto desde el primer vistazo.
+              Cada decisión estética está alineada a objetivos reales de negocio.
+            </p>
+
+            <button class="btn btn--primary" data-i18n="common.seeMore">Ver más</button>
+          </div>
+
+          <div class="service__icon">
+            <img src="./assets/img/design.svg" alt="">
+          </div>
+        </div>
+
+        <div class="service">
+          <div class="service__content">
+            <div class="service__tag" data-i18n="services.ux.tag">UX/UI</div>
+
+            <h3 data-i18n="services.ux.title">
+              Experiencias digitales centradas en usuario y conversión
+            </h3>
+
+            <p data-i18n="services.ux.body">
+              Diseño flujos intuitivos, jerarquías claras y microinteracciones que reducen fricción,
+              mejoran la retención y convierten visitas en acciones.
+            </p>
+
+            <button class="btn btn--primary" data-i18n="common.seeMore">Ver más</button>
+          </div>
+
+          <div class="service__icon">
+            <img src="./assets/img/uxui.svg" alt="">
+          </div>
+        </div>
+
+        <div class="service">
+          <div class="service__content">
+            <div class="service__tag" data-i18n="services.front.tag">Front-End</div>
+
+            <h3 data-i18n="services.front.title">
+              Desarrollo de interfaces dinámicas y performantes
+            </h3>
+
+            <p data-i18n="services.front.body">
+              Transformo diseño en experiencias reales con código limpio, animaciones fluidas y alto rendimiento.
+              Optimizado para velocidad, escalabilidad y dispositivos modernos.
+            </p>
+
+            <button class="btn btn--primary" data-i18n="common.seeMore">Ver más</button>
+          </div>
+
+          <div class="service__icon">
+            <img src="./assets/img/code.svg" alt="">
+          </div>
+        </div>
+
+        <div class="service">
+          <div class="service__content">
+            <div class="service__tag" data-i18n="services.motion.tag">Motion</div>
+
+            <h3 data-i18n="services.motion.title">
+              Animación y microinteracciones que elevan la experiencia
+            </h3>
+
+            <p data-i18n="services.motion.body">
+              Integro motion design para dar vida a interfaces, reforzar identidad visual
+              y mejorar la percepción del producto con feedback visual inteligente.
+            </p>
+
+            <button class="btn btn--primary" data-i18n="common.seeMore">Ver más</button>
+          </div>
+
+          <div class="service__icon">
+            <img src="./assets/img/motion.svg" alt="">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about__inner">
+      <div class="about__slides">
+
+        <div class="about-slide active">
+          <div class="slide__content">
+            <span class="slide__number">01</span>
+            <h2 data-i18n="about.slide1.title">Thinking</h2>
+
+            <p class="slide__lead" data-i18n="about.slide1.lead">
+              Todo empieza entendiendo el problema antes de diseñar.
+            </p>
+
+            <ul>
+              <li data-i18n="about.slide1.item1">Análisis del objetivo del proyecto</li>
+              <li data-i18n="about.slide1.item2">Identificación del usuario y contexto</li>
+              <li data-i18n="about.slide1.item3">Definición de necesidades reales</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-slide">
+          <div class="slide__content">
+            <span class="slide__number">02</span>
+            <h2 data-i18n="about.slide2.title">UX</h2>
+
+            <p class="slide__lead" data-i18n="about.slide2.lead">
+              Estructuro la experiencia para que todo tenga sentido.
+            </p>
+
+            <ul>
+              <li data-i18n="about.slide2.item1">Arquitectura de información</li>
+              <li data-i18n="about.slide2.item2">Flujos de navegación claros</li>
+              <li data-i18n="about.slide2.item3">Wireframes y decisiones funcionales</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-slide">
+          <div class="slide__content">
+            <span class="slide__number">03</span>
+            <h2 data-i18n="about.slide3.title">UI</h2>
+
+            <p class="slide__lead" data-i18n="about.slide3.lead">
+              Transformo estructura en una experiencia visual atractiva.
+            </p>
+
+            <ul>
+              <li data-i18n="about.slide3.item1">Diseño visual alineado a marca</li>
+              <li data-i18n="about.slide3.item2">Jerarquía y legibilidad</li>
+              <li data-i18n="about.slide3.item3">Microinteracciones y detalles</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-slide">
+          <div class="slide__content">
+            <span class="slide__number">04</span>
+            <h2 data-i18n="about.slide4.title">Development</h2>
+
+            <p class="slide__lead" data-i18n="about.slide4.lead">
+              Convierto todo en una experiencia funcional y real.
+            </p>
+
+            <ul>
+              <li data-i18n="about.slide4.item1">Desarrollo frontend optimizado</li>
+              <li data-i18n="about.slide4.item2">Animaciones y performance</li>
+              <li data-i18n="about.slide4.item3">Adaptabilidad a dispositivos</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="about__dots" aria-label="Indicador de slides">
+        <button class="about__dot active" type="button" aria-label="Slide 1"></button>
+        <button class="about__dot" type="button" aria-label="Slide 2"></button>
+        <button class="about__dot" type="button" aria-label="Slide 3"></button>
+        <button class="about__dot" type="button" aria-label="Slide 4"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="experience section py-5">
+    <div class="container">
+      <div class="section__header text-center mb-5">
+        <h2 class="section__title" data-i18n="experience.title">Experiencia</h2>
+        <p class="experience__lead mx-auto" data-i18n="experience.lead">
+          Experiencia en diseño web, branding y comunicación visual para campañas, marcas y productos digitales.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__progress d-none d-md-block"></div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-6 timeline__item">
+            <article class="timeline__card h-100">
+              <span class="timeline__date" data-i18n="experience.item1.date">Nov 2024 - Actualidad</span>
+              <div class="timeline__eyebrow">Grupo Salinas</div>
+              <h3 data-i18n="experience.item1.role">Diseñador Web</h3>
+              <p class="timeline__summary" data-i18n="experience.item1.summary">
+                Desarrollo de páginas y piezas digitales para campañas comerciales con enfoque en marketing, jerarquía visual y usabilidad.
+              </p>
+              <ul class="timeline__list">
+                <li data-i18n="experience.item1.point1">Diseño y desarrollo web para campañas.</li>
+                <li data-i18n="experience.item1.point2">Colaboración con equipo creativo y comunicación interna.</li>
+                <li data-i18n="experience.item1.point3">Soluciones visuales alineadas a objetivos de marca.</li>
+              </ul>
+              <div class="timeline__tags d-flex flex-wrap gap-2">
+                <span>Web</span>
+                <span>Marketing</span>
+                <span>UX/UI</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 timeline__item timeline__item--offset">
+            <article class="timeline__card h-100">
+              <span class="timeline__date" data-i18n="experience.item2.date">Abr 2025</span>
+              <div class="timeline__eyebrow">Dulce Díar</div>
+              <h3 data-i18n="experience.item2.role">Diseñador de Branding</h3>
+              <p class="timeline__summary" data-i18n="experience.item2.summary">
+                Construcción de identidad visual desde concepto hasta aplicación para una marca gastronómica.
+              </p>
+              <ul class="timeline__list">
+                <li data-i18n="experience.item2.point1">Concepto de identidad visual.</li>
+                <li data-i18n="experience.item2.point2">Paleta, estilo y lineamientos.</li>
+                <li data-i18n="experience.item2.point3">Materiales alineados a la personalidad del negocio.</li>
+              </ul>
+              <div class="timeline__tags d-flex flex-wrap gap-2">
+                <span>Branding</span>
+                <span>Identidad</span>
+                <span>Concepto</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 timeline__item">
+            <article class="timeline__card h-100">
+              <span class="timeline__date" data-i18n="experience.item3.date">Jul - Sep 2024</span>
+              <div class="timeline__eyebrow">Dental Family San Juan</div>
+              <h3 data-i18n="experience.item3.role">Diseñador de Branding</h3>
+              <p class="timeline__summary" data-i18n="experience.item3.summary">
+                Desarrollo de identidad y sistema visual con enfoque comercial para mejorar consistencia de marca.
+              </p>
+              <ul class="timeline__list">
+                <li data-i18n="experience.item3.point1">Creación de identidad de marca.</li>
+                <li data-i18n="experience.item3.point2">Aplicación en distintos formatos.</li>
+                <li data-i18n="experience.item3.point3">Adaptación visual a objetivos comerciales.</li>
+              </ul>
+              <div class="timeline__tags d-flex flex-wrap gap-2">
+                <span>Branding</span>
+                <span>Sistema Visual</span>
+                <span>Comunicación</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 timeline__item timeline__item--offset">
+            <article class="timeline__card h-100">
+              <span class="timeline__date" data-i18n="experience.item4.date">Abr - Ago 2024</span>
+              <div class="timeline__eyebrow">Suzuki</div>
+              <h3 data-i18n="experience.item4.role">Diseñador Gráfico y Web</h3>
+              <p class="timeline__summary" data-i18n="experience.item4.summary">
+                Producción de contenido gráfico, web y motion para campañas, comunicación comercial y presencia digital.
+              </p>
+              <ul class="timeline__list">
+                <li data-i18n="experience.item4.point1">Contenido para redes, flyers y piezas promocionales.</li>
+                <li data-i18n="experience.item4.point2">Diseño y estructura web para iniciativas comerciales.</li>
+                <li data-i18n="experience.item4.point3">Motion graphics y visuales por temporada.</li>
+              </ul>
+              <div class="timeline__tags d-flex flex-wrap gap-2">
+                <span>Diseño Gráfico</span>
+                <span>Web</span>
+                <span>Motion</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 timeline__item">
+            <article class="timeline__card h-100">
+              <span class="timeline__date" data-i18n="experience.item5.date">Abr 2022 - Abr 2024</span>
+              <div class="timeline__eyebrow">UAEMéx</div>
+              <h3 data-i18n="experience.item5.role">Diseñador Gráfico y Técnico</h3>
+              <p class="timeline__summary" data-i18n="experience.item5.summary">
+                Desarrollo de materiales institucionales, contenido editorial y apoyo visual para comunicación interna y estudiantil.
+              </p>
+              <ul class="timeline__list">
+                <li data-i18n="experience.item5.point1">Materiales institucionales y formatos oficiales.</li>
+                <li data-i18n="experience.item5.point2">Contenido gráfico y campañas internas.</li>
+                <li data-i18n="experience.item5.point3">Cobertura fotográfica y edición.</li>
+              </ul>
+              <div class="timeline__tags d-flex flex-wrap gap-2">
+                <span>Editorial</span>
+                <span>Fotografía</span>
+                <span>Institucional</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills section py-5">
+    <div class="container">
+      <div class="section__header text-center mb-5">
+        <span class="skills__eyebrow" data-i18n="skills.eyebrow">Toolkit Creativo</span>
+        <h2 class="section__title" data-i18n="skills.title">Habilidades</h2>
+        <p class="skills__lead mx-auto" data-i18n="skills.lead">
+          Combino diseño visual, desarrollo frontend y pensamiento de experiencia para construir marcas y productos digitales más sólidos.
+        </p>
+      </div>
+
+      <div class="row g-4 skills-showcase">
+        <div class="col-12 col-lg-7">
+          <article class="skill-panel skill-panel--featured h-100">
+            <div class="skill-panel__glow"></div>
+            <div class="row g-4 align-items-center h-100">
+              <div class="col-md-7">
+                <span class="skill-panel__number">01</span>
+                <h3 data-i18n="skills.featured.title">Diseño Web & Frontend</h3>
+                <p data-i18n="skills.featured.body">
+                  Desarrollo interfaces visuales, responsivas y bien estructuradas con foco en estética, rendimiento y experiencia de usuario.
+                </p>
+
+                <div class="skill-tags">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>Sass</span>
+                  <span>Bootstrap</span>
+                  <span>JavaScript</span>
+                </div>
+              </div>
+
+              <div class="col-md-5">
+                <div class="skill-orbit">
+                  <span>UI</span>
+                  <span>UX</span>
+                  <span>Motion</span>
+                  <span>Code</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <article class="skill-panel skill-panel--branding h-100">
+            <span class="skill-panel__number">02</span>
+            <h3 data-i18n="skills.branding.title">Branding & Diseño Gráfico</h3>
+            <p data-i18n="skills.branding.body">
+              Construyo identidades visuales, conceptos gráficos y materiales con intención estratégica y consistencia de marca.
+            </p>
+
+            <div class="skill-tags">
+              <span>Branding</span>
+              <span>Identidad Visual</span>
+              <span>Dirección de Arte</span>
+              <span>Editorial</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="skill-mini h-100">
+            <span class="skill-mini__icon">01</span>
+            <h4 data-i18n="skills.mini1.title">Diseño UX/UI</h4>
+            <p data-i18n="skills.mini1.body">Arquitectura visual, jerarquía clara y experiencias que se sienten intuitivas.</p>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="skill-mini h-100">
+            <span class="skill-mini__icon">02</span>
+            <h4 data-i18n="skills.mini2.title">Motion & Visual Impact</h4>
+            <p data-i18n="skills.mini2.body">Animaciones y detalles visuales que elevan la percepción del producto.</p>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-4">
+          <article class="skill-mini h-100">
+            <span class="skill-mini__icon">03</span>
+            <h4 data-i18n="skills.mini3.title">Comunicación Visual</h4>
+            <p data-i18n="skills.mini3.body">Piezas digitales y gráficas alineadas a campañas, marca y objetivos comerciales.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects section py-5">
+    <div class="container">
+      <div class="section__header text-center mb-5">
+        <span class="projects__eyebrow" data-i18n="projects.eyebrow">Selección Visual</span>
+        <h2 class="section__title" data-i18n="projects.title">Proyectos</h2>
+        <p class="projects__lead mx-auto" data-i18n="projects.lead">
+          Una selección de piezas donde convergen diseño visual, motion graphics, 3D y desarrollo web.
+        </p>
+      </div>
+
+      <div class="row g-4 projects-showcase">
+        <div class="col-12 col-lg-8">
+          <article class="project-feature h-100">
+            <a href="https://www.movil.gs/beneficiosparati/hazdeporte/mgs19034-muro" class="project-feature__media">
+              <img src="./assets/img/web.png" alt="Proyecto destacado">
+              <div class="project-feature__overlay">
+                <span class="project-feature__label" data-i18n="projects.featured.label">Proyecto Destacado</span>
+                <h3 data-i18n="projects.featured.title">Campaña Digital / Web Experience</h3>
+                <p data-i18n="projects.featured.body">Diseño visual, interacción y desarrollo para una experiencia digital con alto impacto visual.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="row g-4 h-100">
+            <div class="col-12">
+              <article class="project-tile project-tile--small h-100">
+                <a href="https://www.behance.net/gallery/207608877/Video-introductorio-SUZUKI" class="project-tile__media">
+                  <img src="./assets/img/motion.png" alt="Proyecto motion graphics">
+                  <div class="project-tile__overlay">
+                    <span data-i18n="projects.tile1.label">Motion Graphics</span>
+                    <h4 data-i18n="projects.tile1.title">Visuales en movimiento</h4>
+                  </div>
+                </a>
+              </article>
+            </div>
+
+            <div class="col-12">
+              <article class="project-tile project-tile--small h-100">
+                <a href="#" class="project-tile__media" style="pointer-events: none;">
+                  <img src="./assets/img/3d.png" alt="Proyecto 3D">
+                  <div class="project-tile__overlay">
+                    <span data-i18n="projects.tile2.label">3D</span>
+                    <h4 data-i18n="projects.tile2.title">Exploración visual</h4>
+                  </div>
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="project-card-v2 h-100">
+            <a href="https://www.movil.gs/innovacion-2026/" class="project-card-v2__image">
+              <img src="./assets/img/innova.png" alt="Proyecto web">
+            </a>
+            <div class="project-card-v2__content">
+              <span class="project-card-v2__type">Web Design</span>
+              <h4 data-i18n="projects.card1.title">Sitio visual para campaña</h4>
+              <p data-i18n="projects.card1.body">Landing page con enfoque comercial, jerarquía visual clara y ejecución frontend.</p>
+              <div class="project-card-v2__tags">
+                <span>HTML</span>
+                <span>Sass</span>
+                <span>Bootstrap</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="project-card-v2 h-100">
+            <a href="https://www.behance.net/gallery/202789505/Dental-Family-SANJUAN" class="project-card-v2__image">
+              <img src="./assets/img/sanjuan.png" alt="Proyecto branding">
+            </a>
+            <div class="project-card-v2__content">
+              <span class="project-card-v2__type">Branding</span>
+              <h4 data-i18n="projects.card2.title">Identidad visual</h4>
+              <p data-i18n="projects.card2.body">Construcción de marca, sistema visual y piezas alineadas a personalidad y concepto.</p>
+              <div class="project-card-v2__tags">
+                <span>Branding</span>
+                <span>Dirección de Arte</span>
+                <span>Identidad</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-12 col-xl-4">
+          <article class="project-card-v2 h-100">
+            <a href="#" class="project-card-v2__image" style="pointer-events: none;">
+              <img src="./assets/img/swift.png" alt="Proyecto motion y 3D">
+            </a>
+            <div class="project-card-v2__content">
+              <span class="project-card-v2__type">Corporative Design</span>
+              <h4 data-i18n="projects.card3.title">Diseño gráfico</h4>
+              <p data-i18n="projects.card3.body">Piezas visuales pensadas para reforzar comunicación y presencia.</p>
+              <div class="project-card-v2__tags">
+                <span>Corporative</span>
+                <span>Design</span>
+                <span>Branding</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-cta section py-5">
+    <div class="container">
+      <div class="contact-cta__box text-center">
+        <span class="contact-cta__eyebrow" data-i18n="contact.eyebrow">Contacto</span>
+        <h2 class="section__title" data-i18n="contact.title">Hablemos de tu proyecto</h2>
+        <p class="contact-cta__lead mx-auto" data-i18n="contact.lead">
+          Si tienes una idea, una marca o una experiencia digital en mente, puedes escribirme directo por el canal que prefieras.
+        </p>
+
+        <div class="contact-cta__actions contact-liquid d-flex flex-column flex-md-row justify-content-center gap-3">
+          <a href="mailto:artduzt@gmail.com" class="btn contact-liquid__btn is-active contact-cta__btn">
+            <span data-i18n="contact.email">Correo</span>
+          </a>
+
+          <a
+            href="https://wa.me/+527228897198"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn contact-liquid__btn contact-cta__btn"
+          >
+            <span data-i18n="contact.whatsapp">WhatsApp</span>
+          </a>
+
+          <a
+            href="https://www.behance.net/arturodaz12"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn contact-liquid__btn contact-cta__btn"
+          >
+            <span data-i18n="contact.behance">Behance</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p data-i18n="footer.copy">© 2026 Arturo Díaz — Creative Developer</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="assets/js/idiom-index.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/menu.js"></script>
+<script src="assets/js/slider.js"></script>
+<script src="assets/js/theme.js"></script>
+
+
+</body>
+</html>

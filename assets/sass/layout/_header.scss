@@ -1,0 +1,191 @@
+@use '../utils/variables' as *;
+
+.header {
+  position: fixed;
+  margin: 20px auto;
+  width: calc(100% - 32px);
+  max-width: 1200px;
+
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid var(--border);
+  border-radius: 50px;
+
+  padding: 12px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-self: center;
+  z-index: 200000;
+}
+
+// =============================================
+// NAV
+// =============================================
+.nav {
+  position: absolute;
+  top: 70px;
+  right: 0;
+
+  width: 220px;
+  background: var(--nav-bg);
+
+  border-radius: 12px;
+  padding: 20px;
+
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  &[aria-current="page"] {
+    color: var(--primary);
+    font-weight: 600;
+  }
+}
+
+.nav.active {
+  display: flex;
+}
+
+// =============================================
+// LOGO — respeta el tema claro/oscuro
+// =============================================
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__img {
+  display: block;
+  width: 50px;
+  height: auto;
+  filter: var(--skills-icon-filter);
+}
+
+// =============================================
+// MENU TOGGLE — usa variable para el color
+// =============================================
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+
+  span {
+    width: 22px;
+    height: 2px;
+    background: var(--text); 
+    transition: $transition;
+  }
+}
+
+// =============================================
+// LANGUAGE SWITCH
+// =============================================
+.lang-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lang-switch__track {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  padding: 5px;
+  border-radius: $radius-pill;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+    var(--panel-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 14px 30px rgba(0, 0, 0, 0.24);
+}
+
+.lang-switch__blob {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: calc(50% - 5px);
+  height: calc(100% - 10px);
+  border-radius: $radius-pill;
+  background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
+  box-shadow:
+    0 10px 24px rgba(224, 48, 48, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  transform: translateX(0);
+  transition: transform 0.24s ease;
+  z-index: 1;
+}
+
+.lang-switch.is-en .lang-switch__blob {
+  transform: translateX(100%);
+}
+
+.lang-switch__btn {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.lang-switch__btn.is-active {
+  color: var(--text);
+}
+
+// =============================================
+// RESPONSIVE
+// =============================================
+@media (max-width: 767.98px) {
+  .lang-switch__track {
+    width: 108px;
+    height: 44px;
+  }
+
+  .lang-switch__btn {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    width: auto;
+    background: transparent;
+    padding: 0;
+
+    display: flex !important;
+    flex-direction: row;
+    gap: 30px;
+  }
+}

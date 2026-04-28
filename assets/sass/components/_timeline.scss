@@ -1,0 +1,141 @@
+@use '../utils/variables' as *;
+
+.experience__lead {
+  max-width: 720px;
+  color: $text-muted;
+}
+
+.timeline {
+  --timeline-progress: 0%;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.timeline__progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.08);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: var(--timeline-progress);
+    background: linear-gradient(180deg, $primary-light 0%, $primary 100%);
+    box-shadow: 0 0 18px rgba(224, 48, 48, 0.3);
+  }
+}
+
+.timeline__item {
+  position: relative;
+}
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: $bg-dark;
+  border: 2px solid $primary;
+  z-index: 2;
+}
+
+.timeline__card {
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: rgba(13, 13, 13, 0.92);
+  border: 1px solid $border;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(224, 48, 48, 0.45);
+}
+
+.timeline__date {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.78rem;
+  color: $primary-light;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.timeline__eyebrow {
+  color: $text-muted;
+  margin-bottom: 0.4rem;
+}
+
+.timeline__summary {
+  color: $text-muted;
+  margin: 0.85rem 0 1rem;
+}
+
+.timeline__list {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+
+  li {
+    margin-bottom: 0.55rem;
+    color: rgba(245, 245, 245, 0.9);
+  }
+}
+
+.timeline__tags span {
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 768px) {
+  .timeline__item {
+    padding-right: 2.25rem;
+  }
+
+  .timeline__item--offset {
+    margin-top: 4rem;
+    padding-left: 2.25rem;
+    padding-right: 0;
+  }
+
+  .timeline__item:nth-child(odd) .timeline__card {
+    margin-right: 2rem;
+  }
+
+  .timeline__item--offset .timeline__card {
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .timeline {
+    padding-left: 1.25rem;
+  }
+
+  .timeline__progress {
+    left: 6px;
+    transform: none;
+    display: block !important;
+  }
+
+  .timeline__item::before {
+    left: 6px;
+  }
+
+  .timeline__card {
+    margin-left: 1.5rem;
+  }
+}

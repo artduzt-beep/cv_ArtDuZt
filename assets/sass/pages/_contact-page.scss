@@ -1,0 +1,187 @@
+@use '../utils/variables' as *;
+
+.contact-page {
+  position: relative;
+}
+
+.contact-hero {
+  padding-top: 7rem;
+}
+
+.contact-hero__eyebrow,
+.contact-panel__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $primary-light;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-hero__title {
+  max-width: 100%;
+  font-size: 45px;
+  line-height: 1.2;
+
+  span {
+    color: $primary;
+    display: block;
+  }
+}
+
+.contact-hero__lead {
+  max-width: 100%;
+  color: $text-muted;
+}
+
+.contact-panel,
+.social-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid $border;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(13, 13, 13, 0.95);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.contact-panel:hover,
+.social-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(224, 48, 48, 0.3);
+  box-shadow: 0 24px 70px rgba(224, 48, 48, 0.1);
+}
+
+.contact-panel {
+  padding: 2rem;
+}
+
+.contact-panel--primary {
+  background:
+    radial-gradient(circle at top left, rgba(224, 48, 48, 0.12), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(13, 13, 13, 0.95);
+}
+
+.contact-panel h2,
+.contact-panel h3 {
+  margin-bottom: 0.9rem;
+}
+
+.contact-panel p {
+  color: $text-muted;
+  margin-bottom: 1.5rem;
+  max-width: 680px;
+}
+
+.contact-panel__actions {
+  margin-top: 1.5rem;
+}
+
+.contact-list {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.contact-list strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $primary-light;
+}
+
+.contact-list span {
+  color: $text;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  text-decoration: none;
+}
+
+.social-card--mail {
+  background:
+    radial-gradient(circle at top right, rgba(224, 48, 48, 0.16), transparent 35%),
+    rgba(13, 13, 13, 0.95);
+}
+
+.social-card--whatsapp {
+  border-color: rgba(37, 211, 102, 0.18);
+  background:
+    radial-gradient(circle at top right, rgba(37, 211, 102, 0.15), transparent 35%),
+    rgba(13, 13, 13, 0.95);
+}
+
+.social-card__tag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  padding: 0.38rem 0.78rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $primary-light;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.social-card h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.social-card p {
+  color: $text-muted;
+  margin-bottom: 1.4rem;
+}
+
+.social-card__link {
+  margin-top: auto;
+  color: $text;
+  font-weight: 600;
+}
+
+.hero__img2 {
+  max-width: 200px;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (max-width: 991.98px) {
+  .contact-hero {
+    padding-top: 6rem;
+  }
+
+  .contact-hero__lead {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .contact-panel,
+  .social-card {
+    padding: 1.35rem;
+    border-radius: 22px;
+  }
+}

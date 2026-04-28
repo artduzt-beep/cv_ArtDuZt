@@ -1,0 +1,214 @@
+@use '../utils/variables' as *;
+
+.contact-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 420px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 48, 48, 0.14), transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.contact-cta__box {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  border-radius: 32px;
+  border: 1px solid $border;
+  background:
+    radial-gradient(circle at top left, rgba(224, 48, 48, 0.12), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(13, 13, 13, 0.95);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.contact-cta__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $primary-light;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.contact-cta__lead {
+  max-width: 700px;
+  margin-bottom: 2rem;
+  color: $text-muted;
+}
+
+.contact-cta__actions {
+  margin-top: 2rem;
+}
+
+.contact-cta__btn {
+  min-width: 190px;
+  justify-content: center;
+}
+
+/* Wave buttons */
+.contact-liquid__btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-width: 190px;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: $text;
+  backdrop-filter: blur(14px);
+  transition:
+    color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    transform 0.35s ease;
+}
+
+.contact-liquid__btn span {
+  position: relative;
+  z-index: 4;
+}
+
+.contact-liquid__btn::before,
+.contact-liquid__btn::after {
+  content: "";
+  position: absolute;
+  left: -8%;
+  width: 116%;
+  pointer-events: none;
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+}
+
+.contact-liquid__btn::before {
+  top: 115%;
+  height: 190%;
+  background: linear-gradient(180deg, $primary-light 0%, $primary 100%);
+  border-radius: 42% 58% 0 0 / 18% 18% 0 0;
+  z-index: 1;
+  opacity: 0.98;
+}
+
+.contact-liquid__btn::after {
+  top: 108%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 48% 52% 0 0 / 22% 22% 0 0;
+  z-index: 2;
+  opacity: 0.7;
+  mix-blend-mode: screen;
+}
+
+.contact-liquid__btn:hover {
+  transform: translateY(-3px);
+}
+
+.contact-liquid__btn.is-active {
+  color: #fff;
+  border-color: rgba(224, 48, 48, 0.45);
+  box-shadow: 0 16px 36px rgba(224, 48, 48, 0.18);
+}
+
+.contact-liquid__btn.is-active::before {
+  top: 30%;
+  animation: waveFill 3.6s ease-in-out infinite;
+}
+
+.contact-liquid__btn.is-active::after {
+  top: 22%;
+  animation: waveHighlight 2.8s ease-in-out infinite;
+}
+
+.contact-liquid__btn:not(.is-active)::before {
+  top: 115%;
+  animation: none;
+}
+
+.contact-liquid__btn:not(.is-active)::after {
+  top: 108%;
+  animation: none;
+}
+
+@keyframes waveFill {
+  0% {
+    transform: translateX(0) skewX(0deg);
+    border-radius: 42% 58% 0 0 / 18% 18% 0 0;
+  }
+
+  25% {
+    transform: translateX(8px) skewX(1.5deg);
+    border-radius: 48% 52% 0 0 / 22% 16% 0 0;
+  }
+
+  50% {
+    transform: translateX(-6px) skewX(-1.5deg);
+    border-radius: 54% 46% 0 0 / 16% 22% 0 0;
+  }
+
+  75% {
+    transform: translateX(5px) skewX(1deg);
+    border-radius: 47% 53% 0 0 / 20% 18% 0 0;
+  }
+
+  100% {
+    transform: translateX(0) skewX(0deg);
+    border-radius: 42% 58% 0 0 / 18% 18% 0 0;
+  }
+}
+
+@keyframes waveHighlight {
+  0% {
+    transform: translateX(0);
+    border-radius: 48% 52% 0 0 / 22% 22% 0 0;
+  }
+
+  25% {
+    transform: translateX(-6px);
+    border-radius: 54% 46% 0 0 / 24% 18% 0 0;
+  }
+
+  50% {
+    transform: translateX(7px);
+    border-radius: 45% 55% 0 0 / 18% 24% 0 0;
+  }
+
+  75% {
+    transform: translateX(-4px);
+    border-radius: 50% 50% 0 0 / 23% 19% 0 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    border-radius: 48% 52% 0 0 / 22% 22% 0 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .contact-cta__box {
+    padding: 2rem 1.25rem;
+    border-radius: 24px;
+  }
+
+  .contact-cta__btn,
+  .contact-liquid__btn {
+    width: 100%;
+  }
+}

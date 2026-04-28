@@ -1,0 +1,29 @@
+@use '../utils/variables' as *;
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid $primary;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, width, height, background-color, border-color;
+  transition: width 0.18s ease, height 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+}
+
+.cursor.hover {
+  width: 34px;
+  height: 34px;
+  border-color: #fff;
+  background: rgba(224, 48, 48, 0.14);
+}
+
+@media (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}

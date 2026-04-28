@@ -1,0 +1,201 @@
+@use '../utils/variables' as *;
+
+.work-page {
+  position: relative;
+}
+
+.work-hero {
+  padding-top: 7rem;
+}
+
+.work-hero__eyebrow,
+.work-links__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $primary-light;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.work-hero__title {
+  max-width: 100%;
+  font-size: 45px;
+  line-height: 1.2;
+
+  span {
+    color: $primary;
+    display: block;
+  }
+}
+
+.work-hero__lead {
+  color: $text-muted;
+  max-width: 100%;
+}
+
+.work-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid $border;
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(13, 13, 13, 0.94);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(224, 48, 48, 0.35);
+  box-shadow: 0 26px 70px rgba(224, 48, 48, 0.12);
+}
+
+.work-card__media {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.work-card__media--wide {
+  aspect-ratio: 16 / 9;
+}
+
+.work-card--hero .work-card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.work-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease, filter 0.35s ease;
+}
+
+.work-card:hover .work-card__media img {
+  transform: scale(1.05);
+  filter: brightness(1.03);
+}
+
+.work-card__body {
+  padding: 1.5rem;
+}
+
+.work-card--hero .work-card__body {
+  padding: 1.8rem;
+}
+
+.work-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.work-card__meta span {
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  color: $primary-light;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.work-card__body h2,
+.work-card__body h3 {
+  margin-bottom: 0.8rem;
+  line-height: 1.05;
+}
+
+.work-card__body p {
+  color: $text-muted;
+  margin-bottom: 1.2rem;
+}
+
+.work-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
+}
+
+.work-card__tags span {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: $text;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.work-links__box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 28px;
+  border: 1px solid $border;
+  background:
+    radial-gradient(circle at top left, rgba(224, 48, 48, 0.12), transparent 30%),
+    rgba(13, 13, 13, 0.95);
+}
+
+.work-links__box h2 {
+  margin-bottom: 0.85rem;
+}
+
+.work-links__box p {
+  max-width: 540px;
+  color: $text-muted;
+  margin-bottom: 0;
+}
+
+.work-links__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.work-card--stack .work-card__media {
+  aspect-ratio: 4 / 5;
+  min-height: 360px;
+}
+
+.work-card--stack .work-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 240px;
+}
+
+@media (max-width: 991.98px) {
+  .work-hero {
+    padding-top: 6rem;
+  }
+
+  .work-hero__lead {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .work-card__body,
+  .work-card--hero .work-card__body,
+  .work-links__box {
+    padding: 1.35rem;
+  }
+
+  .work-links__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

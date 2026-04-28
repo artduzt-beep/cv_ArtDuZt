@@ -1,0 +1,261 @@
+@use '../utils/variables' as *;
+
+.skills {
+  position: relative;
+  overflow: hidden;
+}
+
+.skills::before {
+  content: "";
+  position: absolute;
+  inset: 8% 12% auto;
+  height: 420px;
+  background: radial-gradient(circle, rgba(224, 48, 48, 0.16), transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skills .container {
+  position: relative;
+  z-index: 1;
+}
+
+.skills__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $primary-light;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.skills__lead {
+  max-width: 720px;
+  color: $text-muted;
+}
+
+.skill-panel,
+.skill-mini {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $border;
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+    rgba(13, 13, 13, 0.95);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.skill-panel {
+  padding: 2rem;
+  min-height: 320px;
+}
+
+.skill-mini {
+  padding: 1.6rem;
+}
+
+.skill-panel:hover,
+.skill-mini:hover {
+  transform: translateY(-8px);
+  border-color: rgba(224, 48, 48, 0.4);
+  box-shadow: 0 28px 70px rgba(224, 48, 48, 0.12);
+}
+
+.skill-panel__number,
+.skill-mini__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $primary-light;
+  border: 1px solid rgba(224, 48, 48, 0.25);
+  background: rgba(224, 48, 48, 0.08);
+}
+
+.skill-panel h3,
+.skill-mini h4 {
+  margin-bottom: 0.9rem;
+}
+
+.skill-panel p,
+.skill-mini p {
+  color: $text-muted;
+  margin-bottom: 1.2rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tags span {
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: $text;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.skill-panel--featured {
+  background:
+    radial-gradient(circle at top left, rgba(224, 48, 48, 0.18), transparent 32%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    rgba(13, 13, 13, 0.98);
+}
+
+.skill-panel--branding {
+  background:
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30%),
+    linear-gradient(145deg, rgba(224, 48, 48, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(13, 13, 13, 0.96);
+}
+
+.skill-panel__glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -40px;
+  top: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 48, 48, 0.25), transparent 70%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.skill-orbit {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  animation: orbitSpin 16s linear infinite;
+}
+
+.skill-orbit span {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: $text;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.skill-orbit span:nth-child(1) {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orbitLabelTop 16s linear infinite;
+}
+
+.skill-orbit span:nth-child(2) {
+  top: 50%;
+  right: -14px;
+  transform: translateY(-50%);
+  animation: orbitLabelRight 16s linear infinite;
+}
+
+.skill-orbit span:nth-child(3) {
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orbitLabelBottom 16s linear infinite;
+}
+
+.skill-orbit span:nth-child(4) {
+  top: 50%;
+  left: -35px;
+  transform: translateY(-50%);
+  animation: orbitLabelLeft 16s linear infinite;
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitLabelTop {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotate(-360deg);
+  }
+}
+
+@keyframes orbitLabelRight {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(-360deg);
+  }
+}
+
+@keyframes orbitLabelBottom {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotate(-360deg);
+  }
+}
+
+@keyframes orbitLabelLeft {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(-360deg);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .skill-orbit {
+    width: 180px;
+    height: 180px;
+  }
+
+  .skill-orbit span {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .skill-orbit span:nth-child(2) {
+    right: -8px;
+  }
+
+  .skill-orbit span:nth-child(4) {
+    left: -31px;
+  }
+}

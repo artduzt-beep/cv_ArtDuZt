@@ -1,0 +1,211 @@
+@use '../utils/variables' as *;
+
+/* ===== ANIMACIÓN ENTRADA ===== */
+.service {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.service.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== CONTENEDOR ===== */
+.services {
+  position: relative;
+}
+
+.services__slider {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== CARD ===== */
+.service {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding: 30px;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(224,48,48,0.08),
+    rgba(0,0,0,0.8)
+  );
+
+  border: 1px solid $border;
+
+  transition: all 0.4s ease;
+}
+
+.service.active {
+  display: flex;
+}
+
+/* ===== CONTENIDO ===== */
+.service__content {
+  max-width: 500px;
+}
+
+.service__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: $primary;
+  border: 1px solid $primary;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.service h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.service p {
+  color: $text-muted;
+  margin-bottom: 20px;
+}
+
+/* ===== ICONOS (FIX REAL) ===== */
+.service__icon {
+  width: 100px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $primary; // controla SVG
+
+  opacity: 1; // ❗ FIX: antes estaba en 0.15
+
+  transition: 0.4s ease;
+
+  img {
+    width: 100px;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    stroke: currentColor;
+    fill: none;
+
+    stroke-width: 1.5;
+
+    filter: drop-shadow(0 0 6px rgba(224,48,48,0.4));
+  }
+}
+
+.service:hover .service__icon {
+  transform: scale(1.1);
+}
+
+.service:hover .service__icon svg {
+  stroke: $primary-light;
+}
+
+/* ===== NAV ===== */
+.services__nav {
+  position: relative;
+  margin-top: 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 500px;
+  margin: 20px auto 30px;
+
+  padding: 0 10px;
+
+  /* línea base */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-50%);
+  }
+
+  /* ===== LÍNEA IZQUIERDA ===== */
+  .line-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 1px;
+    width: var(--left, 0%);
+    background: $primary;
+    transform: translateY(-50%);
+    transition: 0.4s ease;
+  }
+
+  /* ===== LÍNEA DERECHA ===== */
+  .line-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 1px;
+    width: var(--right, 0%);
+    background: $primary;
+    transform: translateY(-50%);
+    transition: 0.4s ease;
+  }
+}
+
+/* ===== ITEMS ===== */
+.nav-item {
+  position: relative;
+  z-index: 2;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  color: $text-muted;
+  cursor: pointer;
+
+  padding: 10px 15px;
+  border-radius: 10px;
+
+  transition: 0.3s ease;
+}
+
+.nav-item:hover {
+  color: $primary;
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  background: $primary;
+  color: #000;
+
+  box-shadow: 0 0 20px rgba(224,48,48,0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 768px) {
+  .service {
+    padding: 50px;
+  }
+
+  .service h3 {
+    font-size: 1.8rem;
+  }
+
+  .service__icon {
+    width: 140px;
+    height: 140px;
+  }
+}

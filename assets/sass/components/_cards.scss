@@ -1,0 +1,20 @@
+@use '../utils/variables' as *;
+
+.project-card,
+.skill-card,
+.info-card {
+  background: $bg-soft;
+  border: 1px solid $border;
+  border-radius: 12px;
+
+  padding: 20px;
+  transition: all $transition;
+}
+
+.project-card:hover,
+.skill-card:hover,
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: $primary;
+  box-shadow: 0 10px 30px rgba(224, 48, 48, 0.25);
+}

@@ -1,0 +1,213 @@
+@use '../utils/variables' as *;
+
+.projects {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 48, 48, 0.14), transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.projects__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $primary-light;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.projects__lead {
+  max-width: 760px;
+  color: $text-muted;
+}
+
+.project-feature,
+.project-tile,
+.project-card-v2 {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid $border;
+  background: rgba(13, 13, 13, 0.92);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-feature:hover,
+.project-tile:hover,
+.project-card-v2:hover {
+  transform: translateY(-8px);
+  border-color: rgba(224, 48, 48, 0.35);
+  box-shadow: 0 28px 70px rgba(224, 48, 48, 0.12);
+}
+
+.project-feature__media,
+.project-tile__media,
+.project-card-v2__image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-feature__media img,
+.project-tile__media img,
+.project-card-v2__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.project-feature:hover img,
+.project-tile:hover img,
+.project-card-v2:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.02);
+}
+
+.project-feature {
+  min-height: 560px;
+}
+
+.project-feature__media {
+  height: 100%;
+}
+
+.project-feature__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgb(0 0 0) 50%, rgb(0 0 0 / 32%) 100%);
+}
+
+.project-feature__label {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  padding: 0.42rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $primary-light;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.project-feature__overlay h3 {
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.project-feature__overlay p {
+  max-width: 560px;
+  color: rgba(245, 245, 245, 0.78);
+  margin-bottom: 0;
+}
+
+.project-tile--small {
+  min-height: 268px;
+}
+
+.project-tile__media {
+  height: 100%;
+}
+
+.project-tile__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.4rem;
+  background: linear-gradient(to top, rgb(0 0 0) 50%, rgb(0 0 0 / 32%) 100%);
+}
+
+.project-tile__overlay span {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $primary-light;
+}
+
+.project-tile__overlay h4 {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+.project-card-v2 {
+  height: 100%;
+}
+
+.project-card-v2__image {
+  aspect-ratio: 16 / 11;
+}
+
+.project-card-v2__content {
+  padding: 1.4rem;
+}
+
+.project-card-v2__type {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  font-size: 0.76rem;
+  color: $primary-light;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-card-v2__content h4 {
+  margin-bottom: 0.75rem;
+}
+
+.project-card-v2__content p {
+  color: $text-muted;
+  margin-bottom: 1rem;
+}
+
+.project-card-v2__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.project-card-v2__tags span {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 991.98px) {
+  .project-feature {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .project-feature {
+    min-height: 360px;
+  }
+
+  .project-feature__overlay {
+    padding: 1.4rem;
+  }
+
+  .project-tile--small {
+    min-height: 220px;
+  }
+}
